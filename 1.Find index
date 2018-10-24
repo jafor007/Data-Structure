@@ -1,0 +1,48 @@
+# Data-Structure#include<bits/stdc++.h>
+#include<stdio.h>
+using namespace std;
+
+int indexofsubstr(char str[],char s[])
+{
+    int i,j,k,l,h;
+    l= strlen(s);
+    printf("%s %s\n",str,s);
+    h= strlen(str);
+
+    for(i=0; i<h; i++)
+    {
+        k=i;
+
+        for(j=0; j<l; j++)
+        {
+
+            if(str[k] != s[j])
+                break;
+              k++;
+        }
+        if(j== l)
+           return (i);
+    }
+    return -1;
+}
+
+int main()
+{
+   char s[100] = {"JOHN PAUL JONES"};
+   char t[100] = {"A THING OF BEAUTY IS JOY FOREVER"};
+
+   int x=indexofsubstr(s,"JO");
+   cout<<x<<endl;
+
+   int y=indexofsubstr(t,"JOY");
+   cout<<y<<endl;
+
+   int c=indexofsubstr(t,"JO");
+   cout<<c<<endl;
+
+   int d=indexofsubstr(t,"A");
+   cout<<d<<endl;
+
+   int e=indexofsubstr(t,"THE");
+   cout<<e<<endl;
+}
