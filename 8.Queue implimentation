@@ -1,0 +1,81 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int a[10];
+int rear= -1,front=-1;
+
+bool isemptyqueue()
+{
+    if(rear ==-1 && front ==-1)
+        return true;
+    else
+        return false;
+
+}
+void enqueue(char x)
+{
+    if(rear == sizeof(a)-1)
+    {
+        cout<<"Queue is full.";
+        return;
+    }
+    else if(isemptyqueue())
+       rear= front= 0;
+
+    else
+      rear++;
+
+    a[rear] =x;
+}
+
+int dequeue()
+{
+   if(isemptyqueue())
+   {
+        cout<<"Queue is empty.";
+        return 0;
+   }
+   else if(front== rear)          ///for one element;
+    front= rear = -1;
+
+   else
+    front++;
+}
+
+void display()
+{
+    if(front== -1)
+    {
+        cout<<"No element for display.";
+        return;
+    }
+    for(int i=front; i!=rear;)
+    {
+        cout<<(char)a[i]<<" ";
+        i++;
+        if(i==rear)
+            cout<<(char)a[i];
+    }
+}
+int main()
+{
+    enqueue('A');
+    enqueue('B');
+    enqueue('C');
+    dequeue();
+    enqueue('D');
+    enqueue('E');
+    dequeue();
+    dequeue();
+    enqueue('F');
+    dequeue();
+    enqueue('G');
+    enqueue('H');
+    dequeue();
+    enqueue('K');
+    dequeue();
+    dequeue();
+    dequeue();
+    display();
+}
+
