@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+#include<stdio.h>
+using namespace std;
+
+int main()
+{
+    char arr[7]= {"PEOPLE"};
+    int i,j,k,temp,n,c=0,d=0;
+
+    i=0;
+    for(i=0; i<5; i++)      //this i is only for 8 or compair num.
+    {
+        for(j=i+1; j<6; j++)    //and this j is for which num we compair with i.
+        {
+            c++;
+            if(arr[i]>arr[j])
+            {
+                d++;
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    }
+   cout<<"Number of compare: "<<c<<endl;
+   cout<<"Number of interchange: "<<d<<endl;
+    printf("%s",arr);
+
+    return 0;
+}
+
